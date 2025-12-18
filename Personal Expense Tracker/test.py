@@ -1,1 +1,1 @@
-print("\nTEST")
+print("\ninMAIN")
