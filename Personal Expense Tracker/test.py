@@ -1,1 +1,1 @@
-print("\ninMAIN")
+print("\PARTY")
