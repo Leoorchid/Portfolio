@@ -1,4 +1,5 @@
 import requests
+import json
 
 url = "https://pokeapi.co/api/v2/pokemon/"
 
@@ -8,7 +9,7 @@ def getPoki(poki):
 
     if response.ok:
         data = response.json()
-        print(data)
+        return data
     else:
         print("error")
 
@@ -16,4 +17,15 @@ def getPoki(poki):
 poki = input("Pick Pokimon: ")
 
 
-getPoki(poki)
+data = getPoki(poki)
+
+print(f"[{poki}]\n")
+print(f"Height: {data['height']}")
+print(f"Weight: {data['weight']}")
+for ab in data["abilities"]:
+    print(f"Ability: {ab['ability']['name']}")
+
+for stat in data["stats"]:
+    f = stat["base_stat"]
+    s = stat["stat"]["name"]
+    print(f"{f}: {s}")
